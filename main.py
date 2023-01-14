@@ -433,7 +433,7 @@ class MainWidget(RelativeLayout):
             self.state_game_over = True
             # sounds
             self.sound_gameover_impact.play()
-            Clock.schedule_once(self.play_voice_game_over, 1.5)
+            Clock.schedule_once(self.play_voice_game_over, 1)
             self.sound_music1.stop()
             # end sounds
             self.menu_title = 'GAME OVER'
@@ -445,7 +445,8 @@ class MainWidget(RelativeLayout):
 
     # Play voice game over with a delay
     def play_voice_game_over(self, dt):
-        self.sound_gameover_voice.play()
+        if self.state_game_over:
+            self.sound_gameover_voice.play()
 
     # End play voice game over with a delay
 
